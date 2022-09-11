@@ -5,9 +5,9 @@ databases:
 
 services:
   - type: web
-    name: mysite
+    name: renderTest
     env: python
-    buildCommand: "pip install -r requirements.txt'
+    buildCommand: 'pip install -r requirements.txt'
     startCommand: "gunicorn renderTest.wsgi:application"
     envVars:
       - key: DATABASE_URL

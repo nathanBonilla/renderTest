@@ -1,7 +1,7 @@
 databases:
-  - name: renderTest
-    databaseName: renderTest
-    user: renderTest
+  - name: renderTestBonilla
+    databaseName: renderTestBonilla
+    user: renderTestBonilla
 
 services:
   - type: web

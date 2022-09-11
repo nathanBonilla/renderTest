@@ -1,0 +1,20 @@
+databases:
+  - name: renderTest
+    databaseName: renderTestDB
+    user: renderTest
+
+services:
+  - type: web
+    name: mysite
+    env: python
+    buildCommand: "pip install -r requirements.txt'
+    startCommand: "gunicorn renderTest.wsgi:application"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: renderTest
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4

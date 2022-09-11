@@ -1,6 +1,6 @@
 databases:
   - name: renderTest
-    databaseName: renderTestDB
+    databaseName: renderTest
     user: renderTest
 
 services:

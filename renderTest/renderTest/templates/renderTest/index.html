@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for item in listItems %}
+    <li>{{ item }} - {{ item.flag }}</li>
+    {% endfor %}
+
+    <form action="addItem/" method="POST">
+        {% csrf_token %}
+        <input type="text" id="newItem" name="newItem">
+        <input type="submit" value="Add Item">
+    </form>
+
+    <h1>Falses</h1>
+    {% for item in falses %}
+    <form action="markTrue/" method="POST">
+        {% csrf_token %}
+        <label for="{{ item }}">
+            <li>
+                {{ item }} - {{ item.flag }}
+                <input type="hidden" name="item" id="{{ item }}" value="{{ item }}">
+                <input type="submit" value="True"></li>
+            </li>
+        </label>
+        
+    </form>
+    {% endfor %}
+
+    <h1>Trues</h1>
+    {% for item in trues %}
+    <li>{{ item }} - {{ item.flag }}</li>
+    {% endfor %}
+    
+</body>
+</html>
